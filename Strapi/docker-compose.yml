@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+    strapi-postgres-compose:
+        image: postgres
+        environment:
+          POSTGRES_PASSWORD: "adminadmin"
+        ports:
+          - "15432:5432"
+        volumes:
+          - ~/dev/PostgreSQL:/var/lib/postgresql/data 
+        networks:
+          - postgres-compose-network
+          
+    strapi-pgadmin-compose:
+        image: dpage/pgadmin4
+        environment:
+          PGADMIN_DEFAULT_EMAIL: "diogo.fernandes@lb2.com.br"
+          PGADMIN_DEFAULT_PASSWORD: "adminadmin"
+        ports:
+          - "16543:80"
+        depends_on:
+          - strapi-postgres-compose
+        networks:
+          - postgres-compose-network
+    
+    strapiexample:
+        image: strapi/strapi
+        container_name: strapi-helpdesk
+        restart: unless-stopped
+        env_file: .env
+        environment:
+            DATABASE_CLIENT: ${DATABASE_CLIENT}
+            DATABASE_NAME: ${DATABASE_NAME}
+            DATABASE_HOST: ${DATABASE_HOST}
+            DATABASE_PORT: ${DATABASE_PORT}
+            DATABASE_USERNAME: ${DATABASE_USERNAME}
+            DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+        #    links:
+        #      - mongo:mongo
+        networks:
+        - postgres-compose-network
+        volumes:
+        - ./app:/srv/app
+        ports:
+        - "1337:1337"
+
+networks: 
+    postgres-compose-network:
+        driver: bridge
+          
+  
+volumes:
+  strapidata:
