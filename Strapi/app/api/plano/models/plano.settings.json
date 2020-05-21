@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "planos",
+  "info": {
+    "name": "Plano"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nome": {
+      "type": "string"
+    },
+    "dadosRich": {
+      "type": "richtext"
+    },
+    "dados": {
+      "type": "text"
+    },
+    "valor": {
+      "type": "decimal"
+    }
+  }
+}

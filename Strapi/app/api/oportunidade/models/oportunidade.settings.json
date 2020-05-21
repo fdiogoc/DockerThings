@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oportunidades",
+  "info": {
+    "name": "Oportunidade"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "foto": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "inicio": {
+      "type": "date"
+    },
+    "fim": {
+      "type": "date"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

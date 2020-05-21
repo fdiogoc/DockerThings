@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/oportunidades",
+      "handler": "oportunidade.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/oportunidades/count",
+      "handler": "oportunidade.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/oportunidades/:id",
+      "handler": "oportunidade.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/oportunidades",
+      "handler": "oportunidade.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/oportunidades/:id",
+      "handler": "oportunidade.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/oportunidades/:id",
+      "handler": "oportunidade.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

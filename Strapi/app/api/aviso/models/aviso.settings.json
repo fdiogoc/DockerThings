@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "avisos",
+  "info": {
+    "name": "Aviso"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "inicio": {
+      "type": "date"
+    },
+    "fim": {
+      "type": "date"
+    }
+  }
+}
